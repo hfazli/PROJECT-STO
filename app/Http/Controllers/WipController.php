@@ -132,12 +132,12 @@ class WipController extends Controller
         return view('wip.upload');
     }
 
-    public function downloadPdf()
-    {
-        $wips = Wip::all();
-        $pdf = PDF::loadView('wip.pdf', compact('wips'));
-        return $pdf->download('wips.pdf');
-    }
+    // public function downloadPdf()
+    // {
+    //     $wips = Wip::all();
+    //     $pdf = PDF::loadView('wip.pdf', compact('wips'));
+    //     return $pdf->download('wips.pdf');
+    // }
 
     public function upload(Request $request)
     {

@@ -129,12 +129,12 @@ class FinishedGoodController extends Controller
     {
         return view('finished_goods.upload');
     }
-    public function downloadPdf()
-    {
-        $finishedGoods = FinishedGood::all();
-        $pdf = PDF::loadView('finished_goods.pdf', compact('finishedGoods'));
-        return $pdf->download('finished_goods.pdf');
-    }
+    // public function downloadPdf()
+    // {
+    //     $finishedGoods = FinishedGood::all();
+    //     $pdf = PDF::loadView('finished_goods.pdf', compact('finishedGoods'));
+    //     return $pdf->download('finished_goods.pdf');
+    // }
     public function upload(Request $request)
     {
         $request->validate([

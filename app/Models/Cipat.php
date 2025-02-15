@@ -1,4 +1,5 @@
 <?php
+// filepath: /d:/STO-master/STO-master/app/Models/FinishedGood.php
 
 namespace App\Models;
 
@@ -9,8 +10,19 @@ class Cipat extends Model
 {
     use HasFactory;
 
+    protected $table = 'cipat';
+
     protected $fillable = [
-        'name',
-        'description',
+        'inventory_id',
+        'part_name',
+        'part_number',
+        'type_package',
+        'qty_package',
+        'project',
+        'customer',
+        'detail_lokasi',
+        'satuan',
+        'stok_awal',
+        'plant',
     ];
 }
