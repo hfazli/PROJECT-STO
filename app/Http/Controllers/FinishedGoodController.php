@@ -46,9 +46,9 @@ class FinishedGoodController extends Controller
             'qty_package' => 'required|integer',
             'project' => 'nullable|string|max:255',
             'customer' => 'required|string|max:255',
-            'area_fg' => 'nullable|string|max:255',
-            'plant' => 'nullable|string|max:255', // Add this line
+            'detail_lokasi' => 'nullable|string|max:255',
             'satuan' => 'required|string|max:255',
+            'plant' => 'nullable|string|max:255',
         ]);
 
         $finishedGood = new FinishedGood();
@@ -59,8 +59,9 @@ class FinishedGoodController extends Controller
         $finishedGood->qty_package = $request->qty_package;
         $finishedGood->project = $request->project;
         $finishedGood->customer = $request->customer;
-        $finishedGood->area_fg = $request->area_fg;
+        $finishedGood->detail_lokasi = $request->detail_lokasi;
         $finishedGood->satuan = $request->satuan;
+        $finishedGood->plant = $request->plant;
 
         $finishedGood->save();
 
@@ -90,7 +91,7 @@ class FinishedGoodController extends Controller
             'qty_package' => 'required|integer',
             'project' => 'nullable|string|max:255',
             'customer' => 'required|string|max:255',
-            'area_fg' => 'nullable|string|max:255',
+            'detail_lokasi' => 'nullable|string|max:255',
             'satuan' => 'required|string|max:255',
         ]);
 

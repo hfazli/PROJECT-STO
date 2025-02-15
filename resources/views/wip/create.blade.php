@@ -4,12 +4,12 @@
 
 @section('content')
     <div class="pagetitle">
-        <h1>Created FG KBI</h1>
+        <h1>Created WIP KBI</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('finished_goods.index') }}">FG</a></li>
-                <li class="breadcrumb-item active">Created FG</li>
+                <li class="breadcrumb-item"><a href="{{ route('wip.index') }}">WIP</a></li>
+                <li class="breadcrumb-item active">Created WIP</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
@@ -17,11 +17,11 @@
     <section class="section">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Created FG</h5>
+                <h5 class="card-title">Created WIP</h5>
 
                 <!-- Custom Styled Validation -->
                 <form class="row g-3 needs-validation" novalidate enctype="multipart/form-data" method="POST"
-                    action="{{ route('finished_goods.store') }}">
+                    action="{{ route('wip.store') }}">
                     @csrf
 
                     <div class="row">

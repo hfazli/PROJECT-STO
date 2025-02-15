@@ -133,10 +133,10 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label for="area_fg" class="form-label">Area FG</label>
-                        <input type="text" name="area_fg" class="form-control @error('area_fg') is-invalid @enderror"
-                            id="area_fg" value="{{ old('area_fg', $finishedGood->area_fg) }}">
-                        @error('area_fg')
+                        <label for="detail_lokasi" class="form-label">Detail Lokasi</label>
+                        <input type="text" name="detail_lokasi" class="form-control @error('detail_lokasi') is-invalid @enderror"
+                            id="detail_lokasi" value="{{ old('detail_lokasi', $finishedGood->detail_lokasi) }}">
+                        @error('detail_lokasi')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
@@ -159,6 +159,14 @@
                         <input type="number" name="stok_awal" class="form-control @error('stok_awal') is-invalid @enderror"
                             id="stok_awal" value="{{ old('stok_awal', $finishedGood->stok_awal) }}">
                         @error('stok_awal')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="col-md-6">
+                        <label for="plant" class="form-label">Plant</label>
+                        <input type="text" name="plant" class="form-control @error('plant') is-invalid @enderror"
+                            id="platn" value="{{ old('plant', $finishedGood->stok_awal) }}">
+                        @error('plant')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>

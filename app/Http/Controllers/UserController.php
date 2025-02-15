@@ -31,7 +31,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_card_number' => 'required|string|max:255|unique:users',
+            'id_card_number' => 'required|string|size:5|regex:/^[a-zA-Z0-9]+$/|unique:users',
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'username' => 'nullable|string|max:255|unique:users',
@@ -92,7 +92,7 @@ class UserController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'id_card_number' => 'required|string',
+            'id_card_number' => 'required|string|size:5|regex:/^[a-zA-Z0-9]+$/',
         ]);
 
         $user = User::where('id_card_number', $request->id_card_number)->first();

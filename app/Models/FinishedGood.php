@@ -18,8 +18,9 @@ class FinishedGood extends Model
         'qty_package',
         'project',
         'customer',
-        'area_fg',
+        'detail_lokasi',
         'satuan',
-        'stok_awal', // New column
+        'stok_awal',
+        'plant',
     ];
 }

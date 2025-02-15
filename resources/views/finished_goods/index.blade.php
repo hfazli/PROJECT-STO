@@ -69,6 +69,7 @@
                                <th>Detail Lokasi</th>
                                <th>Satuan</th>
                                <th>Stok Awal</th> <!-- New column header -->
+                               <th>Plant</th>
                                <th>Actions</th>
                            </tr>
                        </thead>
@@ -83,9 +84,10 @@
                                    <td>{{ $finishedGood->qty_package }}</td>
                                    <td>{{ $finishedGood->project }}</td>
                                    <td>{{ $finishedGood->customer }}</td>
-                                   <td>{{ $finishedGood->area_fg }}</td>
+                                   <td>{{ $finishedGood->detail_lokasi }}</td>
                                    <td>{{ $finishedGood->satuan }}</td>
                                    <td>{{ $finishedGood->stok_awal }}</td> <!-- New column data -->
+                                   <td>{{ $finishedGood->plant }}</td>
                                    <td>
                                        <div class="d-flex justify-content-center">
                                            <a href="{{ route('finished_goods.edit', $finishedGood->id) }}" class="btn btn-primary me-2">

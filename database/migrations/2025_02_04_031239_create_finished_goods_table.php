@@ -17,9 +17,10 @@ class CreateFinishedGoodsTable extends Migration
             $table->integer('qty_package')->default(0); // Add default value if needed
             $table->string('project')->nullable();
             $table->string('customer');
-            $table->string('area_fg')->nullable();
+            $table->string('detail_lokasi')->nullable();
             $table->string('satuan');
             $table->integer('stok_awal')->default(0); // Add new column
+            $table->string('plant'); // Add new column
             $table->timestamps();
         });
     }

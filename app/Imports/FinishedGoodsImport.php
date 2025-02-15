@@ -40,8 +40,9 @@ class FinishedGoodsImport implements ToModel, WithHeadingRow, WithStartRow
             'qty_package' => 'required|integer|min:1', // Pastikan qty_package lebih dari 0
             'project' => 'nullable|string|max:255',
             'customer' => 'required|string|max:255',
-            'area_fg' => 'nullable|string|max:255',
+            'detail_lokasi' => 'nullable|string|max:255',
             'satuan' => 'required|string|max:255',
+            'plant' => 'required|string|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -70,8 +71,9 @@ class FinishedGoodsImport implements ToModel, WithHeadingRow, WithStartRow
                     'qty_package' => $row['qty_package'],
                     'project' => $row['project'],
                     'customer' => $row['customer'],
-                    'area_fg' => $row['area_fg'],
-                    'satuan' => $row['satuan'],
+                    'detail_lokasi' => $row['detail_lokasi'],
+                    'satuan' => $row['satuan'], // Move this line before plant
+                    'plant' => $row['plant'], // Add this line
                 ]);
                 $this->successfulRows[] = $existingFinishedGood;
             } else {
@@ -84,8 +86,9 @@ class FinishedGoodsImport implements ToModel, WithHeadingRow, WithStartRow
                     'qty_package' => $row['qty_package'],
                     'project' => $row['project'],
                     'customer' => $row['customer'],
-                    'area_fg' => $row['area_fg'],
-                    'satuan' => $row['satuan'],
+                    'detail_lokasi' => $row['detail_lokasi'],
+                    'satuan' => $row['satuan'], // Move this line before plant
+                    'plant' => $row['plant'], // Add this line
                 ]);
                 $this->successfulRows[] = $finishedGood;
             }

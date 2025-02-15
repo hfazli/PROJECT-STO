@@ -26,264 +26,182 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventory Card</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #fff700;
-            margin: 0;
-            padding: 0;
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #282828; /* Solid background color */
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 800px;
-            background: yellow;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-            border: 2px solid black;
-            text-align: center;
-            box-sizing: border-box;
-        }
-
-        .header-section,
-        .footer-container {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            font-weight: bold;
-        }
-
-        .header-section p,
-        .footer-container p {
-            margin: 5px;
-        }
-
-        .horizontal-line {
-            width: 100%;
-            border-top: 2px solid black;
-            margin: 10px 0;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            text-align: left;
-            margin-bottom: 10px;
-        }
-
-        .form-group label {
-            font-weight: bold;
-            margin-right: 10px;
-            flex: 1;
-        }
-
-        .form-group input {
-            padding: 5px;
-            width: 100%;
-            box-sizing: border-box;
-            flex: 2;
-            font-weight: bold;
-            border: 2px solid black;
-        }
-
-        .status-product-container {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            text-align: left;
-            margin-bottom: 10px;
-        }
-
-        .status-product-container label {
-            font-weight: bold;
-            margin-right: 10px;
-            flex: 1;
-        }
-
-        .status-product {
-            display: flex;
-            flex: 2;
-            justify-content: space-between;
-        }
-
-        .status-product label {
-            font-weight: bold;
-        }
-
-        .status-product strong {
-            font-weight: bold;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-
-        th,
-        td {
-            border: 2px solid black;
-            padding: 8px;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        th {
-            background-color: #d3d3d3;
-        }
-
-        .footer-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-
-        .footer-container p {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            border: 2px solid black;
-            padding: 5px;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-
-        .footer-container input {
-            margin-left: 10px;
-            flex: 1;
-            padding: 5px;
-            box-sizing: border-box;
-            width: 100%;
-            font-weight: bold;
-            border: 2px solid black;
-        }
-
-        input[name="qty_box"],
-        input[name="qty_box_total"],
-        input[name="total"],
-        input[name="qty_box_2"],
-        input[name="qty_box_total_2"],
-        input[name="total_2"] {
-            border: 2px solid black;
-        }
-
-        input[name="grand_total_combined"] {
-            width: 100%;
-            font-size: 1.8em;
-            padding: 15px;
-            text-align: center;
-            background-color: #fff;
-            border: 3px solid black;
-            font-weight: bold;
-            box-sizing: border-box;
-        }
-
-        @media (max-width: 600px) {
-            .header-section,
-            .footer-container {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .footer-container p {
-                width: 100%;
-                text-align: left;
-            }
+            z-index: 9999;
         }
     </style>
-    <script>
-        function calculateTotal() {
-            var qtyBox1 = document.getElementsByName('qty_box')[0].value;
-            var qtyBoxTotal1 = document.getElementsByName('qty_box_total')[0].value;
-            var total1 = qtyBox1 * qtyBoxTotal1 || 0;
-            document.getElementsByName('total')[0].value = total1;
-
-            var qtyBox2 = document.getElementsByName('qty_box_2')[0].value;
-            var qtyBoxTotal2 = document.getElementsByName('qty_box_total_2')[0].value;
-            var total2 = qtyBox2 * qtyBoxTotal2 || 0;
-            document.getElementsByName('total_2')[0].value = total2;
-
-            document.getElementsByName('grand_total_combined')[0].value = total1 + total2;
-        }
-
-        document.addEventListener('input', calculateTotal);
-    </script>
 </head>
 
 <body>
-    <div class="container">
-        <form>
-            <div class="header-section">
-                <div class="left">
-                    <p>PT. KYORAKU BLOWMOLDING INDONESIA</p>
-                    <p>PPIC DEPARTMENT / WAREHOUSE SECTION</p>
-                </div>
-                <div class="separator"></div>
-                <div class="right">
-                    <p>Card No: PR24-</p>
-                </div>
-            </div>
-            <div class="horizontal-line"></div>
-            <h2>INVENTORY CARD</h2>
-            <div class="horizontal-line"></div>
-            <div class="form-group">
-                <label>PART NAME:</label>
-                <input type="text" name="part_name">
-            </div>
-            <div class="form-group">
-                <label>PART NUMBER:</label>
-                <input type="text" name="part_number">
-            </div>
-            <div class="form-group">
-                <label>INVENTORY CODE:</label>
-                <input type="text" name="inventory_code">
-            </div>
-            <div class="status-product-container">
-                <label><strong>STATUS PRODUCT:</strong></label>
-                <div class="status-product">
-                    <label><input type="radio" name="status_product" value="NG"> <strong>NG</strong></label>
-                    <label><input type="radio" name="status_product" value="WIP"> <strong>WIP</strong></label>
-                    <label><input type="radio" name="status_product" value="FINISH GOOD"> <strong>FG</strong></label>
-                </div>
-            </div>
-            <table>
-                <tr>
-                    <th>QTY/BOX</th>
-                    <th>QTY BOX</th>
-                    <th>TOTAL</th>
-                    <th>GRAND TOTAL</th>
-                </tr>
-                <tr>
-                    <td><input type="text" name="qty_box"></td>
-                    <td><input type="text" name="qty_box_total"></td>
-                    <td><input type="text" name="total" readonly></td>
-                    <td rowspan="2"><input type="text" name="grand_total_combined" readonly></td>
-                </tr>
-                <tr>
-                    <td><input type="text" name="qty_box_2"></td>
-                    <td><input type="text" name="qty_box_total_2"></td>
-                    <td><input type="text" name="total_2" readonly></td>
-                </tr>
-            </table>
-            <div class="footer-container">
-                <p>Issued Date: <input type="date" name="issued_date"></p>
-                <p>Prepared by: <input type="text" name="prepared_by"></p>
-                <p>Checked by: <input type="text" name="checked_by"></p>
-            </div>
-        </form>
+    {{-- loader --}}
+    <div class="loader" id="loader">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
     </div>
+    {{-- loader --}}
+    <section class="section">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <!-- Penanda Login -->
+                <div class="navbar-form d-flex justify-content-between align-items-center mb-1 p-1 rounded">
+                    <h5 class="card-title mb-0" style="font-size: 1.5rem; font-weight: bold; color: #ffff;">
+                        <i class="fas fa-warehouse me-2"></i> Scan STO
+                    </h5>
+                    @if (session('success'))
+                        <div id="alertSuccess" class="alert alert-success alert-dismissible fade show mt-1 p-1"
+                            role="alert">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                    @if (session('notfound'))
+                        <div id="alertNotFound" class="alert alert-danger alert-dismissible fade show mt-1 p-1"
+                            role="alert">
+                            {{ session('notfound') }}
+                        </div>
+                    @endif
+                    <div class="text-end">
+                        {{-- name --}}
+                        <small class="text-muted d-block">
+                            <i class="fas fa-user me-1" style="color:#1abc9c;"></i>
+                            {{ $user->name ?? 'Guest' }}
+                        </small>
+                        <small class="text-muted d-block">
+                            <strong style="color: #bdc3c7">
+                                @if (!empty($user->last_login) && $user->last_login instanceof \Carbon\Carbon)
+                                    {{ $user->last_login->format('d M Y, H:i:s') }}
+                                @else
+                                    {{ $user->last_login ?? 'Belum login' }}
+                                @endif
+                            </strong>
+                        </small>
+                    </div>
+                </div>
+                <div class="card p-4 shadow-lg" style="margin-bottom: -10px">
+                    <!-- Form Packing -->
+                    <form>
+                        @csrf
+                        <div class="col-12 mb-2">
+                            <label for="partNumberInput" class="form-label" style="font-size: 1.1rem;">Inventory ID
+                                (Scan QR)</label>
+                            <div class="input-group">
+                                <input type="text" name="part_number" class="form-control" id="partNumberInput"
+                                    required autofocus>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-primary btn-lg w-100" type="submit" id="">Show</button>
+                        </div>
+                        <input type="hidden" name="action" value="show" id="actionField">
+                    </form>
+                </div>
+            </div>
+            <div class="text-center">
+                <img id="noDataImage" src="{{ asset('assets/img/Scan-Barcode.png') }}"
+                    class="animated-image img-fluid py-3" loading="lazy"
+                    style="max-width: 28%; height: auto; object-fit: fill; cursor: pointer;" alt="Page Not Found">
+            </div>
+        </div>
+    </section>
+    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/tinymce/tinymce.min.js') }}"></script>
+    <!-- Template Main JS File -->
+    <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    {{-- jsload --}}
+    <script>
+        window.addEventListener('load', function() {
+            // Sembunyikan loader setelah halaman selesai dimuat
+            document.getElementById('loader').style.display = 'none';
+        });
+    </script>
+    {{-- reload with ajax  --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Auto-focus pada input ketika halaman dimuat
+            const partNumberInput = document.getElementById('partNumberInput');
+            const form = document.getElementById('autoSubmitForm');
+
+            if (partNumberInput) {
+                partNumberInput.focus(); // Fokus pada input saat halaman dimuat
+
+                document.addEventListener('click', function(event) {
+                    if (event.target !== partNumberInput) {
+                        partNumberInput.focus();
+                    }
+                });
+            }
+            // Fungsi untuk menampilkan alert dengan waktu otomatis hilang
+            function showAlert(alertId) {
+                const alertBox = document.getElementById(alertId);
+                if (alertBox) {
+                    alertBox.style.display = 'block';
+                    alertBox.classList.add('show'); // Tambahkan animasi
+
+                    // Hilangkan alert setelah 5 detik
+                    setTimeout(() => {
+                        alertBox.classList.remove('show');
+                        alertBox.classList.add('fade');
+                        setTimeout(() => alertBox.remove(), 500); // Hapus setelah fade-out selesai
+                    }, 5000);
+                }
+            }
+            // Panggil alert sesuai session
+            @if (session('success'))
+                showAlert('alertSuccess');
+            @elseif (session('notfound'))
+                showAlert('alertNotFound');
+            @endif
+        });
+        // Keep session alive setiap 10 menit
+        let sessionAlive = true; // Kendalikan secara global
+        setInterval(() => {
+            if (!sessionAlive) return;
+            fetch('/keep-session-alive').catch(() => sessionAlive = false);
+        }, 10 * 60 * 1000);
+
+        function debounce(func, delay) {
+            let timer;
+            return function(...args) {
+                clearTimeout(timer);
+                timer = setTimeout(() => func.apply(this, args), delay);
+            };
+        }
+        document.getElementById('partNumberInput').addEventListener('input', debounce(resetTimer, 500));
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Panggil fungsi sesuai session
+            @if (session('notfound'))
+                showAlert('alertNotFound');
+            @endif
+        });
+        // {{-- time alert --}}
+        @if (session('success') || session('notfound') || session('gagal'))
+            // Waktu delay 5 detik (5000 milidetik)
+            setTimeout(function() {
+                // Mencari elemen alert yang ada dan menyembunyikannya
+                var alertElement = document.querySelector('.alert');
+                if (alertElement) {
+                    alertElement.classList.remove('show');
+                    alertElement.classList.add('fade');
+                    setTimeout(function() {
+                        alertElement.remove();
+                    }, 50); // Menunggu animasi fade-out
+                }
+            }, 2000);
+        @endif
+    </script>
 </body>
 
 </html>
